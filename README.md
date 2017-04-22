@@ -1,21 +1,15 @@
 # buildscripts
 
-This contains metadata and build scripts for the EulerOS AntOS Host
-Images.  For more information, see
-http://wiki.centos.org/SpecialInterestGroup/Atomic
+This contains metadata and build scripts for the EulerOS iSula Host
+Images.
 
 ### Maintaining the RPMs
 
-Owner: `mailto:t00169790 <tanzhe@huawei.com>`
+Owner: `mailto: <liangchenye@gmail.com>`
 
 The RPM packages are maintained in euleros rpmpkg repositories.  
-Currently with a private repo by t00169790.
-
-But finally will go to http://euleros.huawei.com/yum or somewhere of euleros.
 
 ### The build process
-
-Builds are run every 24 hrs from cron. 
 
 As step 1,the build machine will git clone the config file and all build script.
 Then run the script,just checkout the lastest ostree repo from euleros-repo.huawei.com/ostree,and rpm compose a new one on the local.
@@ -32,8 +26,3 @@ Resulting artifacts are delivered to :
 Currently this process is owned by t00169790
 
 ### Contributing
-
-Discuss on http://3ms.huawei.com/hi/group/2692269/threads.html#category=1300543
-
-
-
