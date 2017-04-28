@@ -1,8 +1,8 @@
 #!/bin/bash
 
-VERSION=iSula-2.0
+VERSION=2.$( date +%Y%M%D )-devel
 BaseDir=$(pwd)
-MountDir=${BaseDir}/isula_build
+MountDir=${BaseDir}/isula_output
 BuildDir=${MountDir}/build
 LogFile=${BuildDir}/log
 mkdir -p ${BuildDir}/installer
@@ -15,7 +15,7 @@ set -e
 set -o pipefail
 
 # setup build environment
-cp -f ${BaseDir}/AntOS-Base.repo /etc/yum.repos.d/
+cp -f ${BaseDir}/iSula-Base.repo /etc/yum.repos.d/
 yum -y install ostree rpm-ostree docker libvirt epel-release
 
 ## create repo in BuildDir, this will fail w/o issue if already exists
@@ -27,7 +27,7 @@ else
 fi
 
 ## compose a new tree, based on defs in euleros-isula-host.json
-rpm-ostree compose --repo=${OstreeRepoDir} tree --force-nocache --add-metadata-string=version=${VERSION}${TAG} ${BaseDir}/euleros-isula-host.json
+rpm-ostree compose --repo=${OstreeRepoDir} tree --force-nocache --add-metadata-string=version=${VERSION}${TAG} ${BaseDir}/euleros-isula-host.json |& tee ${BuildDir}/log.compose
 ostree --repo=${OstreeRepoDir} summary -u
 
 chmod -R a+r ${OstreeRepoDir}/objects

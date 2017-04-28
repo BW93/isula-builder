@@ -6,26 +6,26 @@ for x in $(seq 0 6); do
   path=/dev/loop${x}
   if ! test -b ${path}; then mknod -m660 ${path} b 7 ${x}; fi
 done
-rm -rf ${ImageDir}/isula_build/lorax
+rm -rf ${ImageDir}/isula_output/lorax
 
 echo 'Running: lorax --nomacboot'
-lorax --nomacboot --add-template=/root/lorax.tmpl -p iSula -v 2.0 -r 1 --isfinal \
+lorax --nomacboot --add-template=${ImageDir}/lorax.tmpl -p "EulerOS iSula" -v 2 -r 1 --isfinal \
 --buildarch=x86_64 \
--s http://developer.huawei.com/ict/site-euleros/euleros/repo/yum/2.2/os/x86_64/Packages/ \
-${ImageDir}/isula_build/lorax
-rm -rf ${ImageDir}/isula_build/images
-mkdir ${ImageDir}/isula_build/images
+-s http://developer.huawei.com/ict/site-euleros/euleros/repo/yum/2.2/os/x86_64/ \
+-s http://buildlogs.centos.org/centos/7/atomic/x86_64/Packages/ \
+${ImageDir}/isula_output/lorax
+rm -rf ${ImageDir}/isula_output/images
+mkdir ${ImageDir}/isula_output/images
 
-VERSION=isula-2.0
+VERSION=euleros-isula-2
 TAG=$( date  +%Y-%m-%d-%H-%M-%S )
 
-cp ${ImageDir}/isula_build/lorax/images/boot.iso ${ImageDir}/isula_build/images/${VERSION}${TAG}.iso
-cd ${ImageDir}/isula_build/images/
+cp ${ImageDir}/isula_output/lorax/images/boot.iso ${ImageDir}/isula_output/images/${VERSION}-${TAG}.iso
+cd ${ImageDir}/isula_output/images/
 
-cd ${ImageDir}/isula_build/
+cd ${ImageDir}/isula_output/
 rm -rf *.tar.xz
 
-tar cvf ${VERSION}${TAG}_PXE.tar lorax/
-xz -z ${VERSION}${TAG}_PXE.tar
+tar cvf ${VERSION}-${TAG}_PXE.tar lorax/
+xz -z ${VERSION}-${TAG}_PXE.tar
 mv *_PXE.tar.xz images/
-cd /srv/antos_tmp/images/
