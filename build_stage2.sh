@@ -2,7 +2,7 @@
 
 VERSION=iSula-1.0-B001.$( date  +%Y%m%d_%H%M%S )
 BaseDir=$(pwd)
-MountDir=${BaseDir}/isula-build
+MountDir=${BaseDir}/isula_output
 BuildDir=${MountDir}/build
 LogFile=${BuildDir}/log
 mkdir -p ${BuildDir}/installer

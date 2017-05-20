@@ -1,13 +1,6 @@
 [base]
 name=base
-baseurl=http://developer.huawei.com/ict/site-euleros/euleros/repo/yum/2.2/os/x86_64/
-enable=1
-gpgcheck=0
-priority=1
-
-[base-extras]
-name=base-extras
-baseurl=http://buildlogs.centos.org/centos/7/atomic/x86_64/Packages/
+baseurl=http://10.240.0.3/isula
 enable=1
 gpgcheck=0
 priority=2

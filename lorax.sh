@@ -11,8 +11,8 @@ rm -rf ${ImageDir}/isula_output/lorax
 echo 'Running: lorax --nomacboot'
 lorax --nomacboot --add-template=${ImageDir}/lorax.tmpl -p "EulerOS iSula" -v 2 -r 1 --isfinal \
 --buildarch=x86_64 \
--s http://developer.huawei.com/ict/site-euleros/euleros/repo/yum/2.2/os/x86_64/ \
--s http://buildlogs.centos.org/centos/7/atomic/x86_64/Packages/ \
+-s file:///home/liangchenye/euleros-packages/developer.huawei.com/ict/site-euleros/euleros/repo/yum/2.2/os/x86_64/ \
+-s http://10.240.0.3/isula \
 ${ImageDir}/isula_output/lorax
 rm -rf ${ImageDir}/isula_output/images
 mkdir ${ImageDir}/isula_output/images

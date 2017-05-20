@@ -16,7 +16,7 @@ set -o pipefail
 
 # setup build environment
 cp -f ${BaseDir}/iSula-Base.repo /etc/yum.repos.d/
-yum -y install ostree rpm-ostree docker libvirt epel-release
+#yum -y install ostree rpm-ostree docker libvirt epel-release
 
 ## create repo in BuildDir, this will fail w/o issue if already exists
 if ! test -d ${BuildDir}/repo/objects; then
