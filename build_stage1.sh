@@ -7,7 +7,6 @@ BuildDir=${MountDir}/build
 LogFile=${BuildDir}/log
 mkdir -p ${BuildDir}/installer
 OstreeRepoDir=${MountDir}/repo && mkdir -p $OstreeRepoDir
-ln -s ${OstreeRepoDir} ${BuildDir}/repo
 isempty=0
 
 set -x
@@ -20,7 +19,7 @@ cp -f ${BaseDir}/iSula-Base.repo /etc/yum.repos.d/
 
 ## create repo in BuildDir, this will fail w/o issue if already exists
 if ! test -d ${BuildDir}/repo/objects; then
-    ostree --repo=${BuildDir}/repo init --mode=archive-z2
+    ostree --repo=${MountDir}/repo init --mode=archive-z2
     isempty=1
 else
     isempty=0
