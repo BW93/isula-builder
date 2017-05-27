@@ -17,12 +17,4 @@ After composed,generate the delta-static data/tar and copy it to euleros-repo.hu
 And then,pull another copy of compsed repo, rysnc it to euleros-repo.huawei.com/ostree,just same to push action.
 Finally run lorax script base the compsed repo,generate a iso in /images.
 
-artifacts in CI machine.
-
-Resulting artifacts are delivered to :
- * http://euleros-repo.huawei.com/ostree
-
-
-Currently this process is owned by t00169790
-
 ### Contributing
