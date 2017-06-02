@@ -2,7 +2,7 @@
     "comment": "EulerOS iSula host, 4wk build",
 
     "osname": "euleros-isula-host",
-    "ref": "euleros-isula-host/2/x86_64/standard",
+    "ref": "euleros-isula-host/7/x86_64/standard",
 
     "repos": ["base"],
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=euleros-isula-2.$( date +%Y%M%D )-devel
+VERSION=2.$( date +%Y%M%D )-devel
 BaseDir=$(pwd)
 MountDir=${BaseDir}/isula_output
 BuildDir=${MountDir}/build
